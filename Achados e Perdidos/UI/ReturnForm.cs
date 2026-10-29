@@ -5,10 +5,10 @@ public partial class ReturnForm : Form
 {
     private readonly Item item;
     private readonly Usuario usuario;
-    public ReturnForm() { InitializeComponent(); }
+    public ReturnForm() { InitializeComponent(); ResponsiveForms.Enable(this); }
     public ReturnForm(Item item, Usuario user)
     {
-        InitializeComponent(); this.item = item; usuario = user;
+        InitializeComponent(); ResponsiveForms.Enable(this); this.item = item; usuario = user;
         lblItem.Text = "DEVOLUÇÃO — " + item.Codigo;
         lblDescricao.Text = item.Descricao + " | " + item.Local;
     }

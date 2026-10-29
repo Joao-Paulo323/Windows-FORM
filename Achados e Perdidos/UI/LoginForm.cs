@@ -7,6 +7,7 @@ public partial class LoginForm : Form
     public LoginForm()
     {
         InitializeComponent();
+        ResponsiveForms.Enable(this);
         primeiroAcesso = !Database.HasUsers();
         lblModo.Text = primeiroAcesso ? "Primeiro acesso — criar administrador" : "Acesso exclusivo para funcionários";
         btnEntrar.Text = primeiroAcesso ? "Criar administrador" : "Entrar";
@@ -43,15 +44,15 @@ public partial class LoginForm : Form
 
     private void btnMostrar_Click(object sender, EventArgs e)
     {
-        if (btnMostrar.Text == "Mostrar")
+        if (btnMostrar.Text == "MOSTRAR")
         {
             txtSenha.UseSystemPasswordChar = false;
-            btnMostrar.Text = "Ocultar";
+            btnMostrar.Text = "OCULTAR";
         }
         else
         {
             txtSenha.UseSystemPasswordChar = true;
-            btnMostrar.Text = "Mostrar";
+            btnMostrar.Text = "MOSTRAR";
         }
     }
 }

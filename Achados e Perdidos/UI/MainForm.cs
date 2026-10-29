@@ -5,7 +5,7 @@ public partial class MainForm : Form
 {
     private readonly Usuario? user;
     private bool history;
-    public MainForm() { InitializeComponent(); }
+    public MainForm() { InitializeComponent(); ResponsiveForms.Enable(this, centerContent: false); }
     public MainForm(Usuario user) : this()
     {
         this.user = user;

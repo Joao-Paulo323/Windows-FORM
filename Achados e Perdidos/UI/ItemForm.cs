@@ -9,10 +9,10 @@ public partial class ItemForm : Form
     private string? origemFoto;
     private string? nomeFoto;
     public Item? SavedItem { get; private set; }
-    public ItemForm() { InitializeComponent(); }
+    public ItemForm() { InitializeComponent(); ResponsiveForms.Enable(this); }
     public ItemForm(Usuario user, Item? edit = null)
     {
-        InitializeComponent(); usuario = user; editando = edit; nomeFoto = edit?.Foto;
+        InitializeComponent(); ResponsiveForms.Enable(this); usuario = user; editando = edit; nomeFoto = edit?.Foto;
         Text = edit == null ? "Cadastrar objeto" : "Editar objeto";
         btnSalvar.Text = edit == null ? "Cadastrar e gerar etiqueta" : "Salvar alterações";
         if (edit != null)
@@ -57,4 +57,12 @@ public partial class ItemForm : Form
         }
         catch (Exception ex) { MessageBox.Show(ex.Message, "Erro ao salvar"); }
     }
+
+    private void ItemForm_Load(object sender, EventArgs e)
+    {
+        WindowState = FormWindowState.Maximized;
+        StartPosition = FormStartPosition.CenterScreen;
+    }
+
+    
 }
